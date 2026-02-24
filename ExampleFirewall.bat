@@ -4,9 +4,12 @@
 set /P prompt=Do you want to add firewall settings for this Server? [Y/N]? 
 if /I "%prompt%" NEQ "Y" goto :end
 
+REM Update Start & End with desired port(s)
 set "startPort=10001"
 set "endPort=10002"
 set "freePort=%startPort%-%endPort%"
+
+REM Update the "Example" with name of Firewall
 set n="Example"
 
 REM Firewall Inbound for TCP and UDP
@@ -46,4 +49,5 @@ IF ERRORLEVEL 1 (
 pause 100
 
 :end
+
 endlocal
